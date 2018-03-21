@@ -1,0 +1,1 @@
+#docker container run -it --rm -p 6379:6379 --name redis --net mynet -v redis_data:/data --volumes-from test-nginx redis

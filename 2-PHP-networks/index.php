@@ -15,7 +15,8 @@
         <![endif]-->
 
         <!-- Add your site or application content here -->
-        <p>1</p>
+        <p>Html:1</p>
+        <p>PHP:<?php echo 1;?></p>
 
     </body>
 </html>

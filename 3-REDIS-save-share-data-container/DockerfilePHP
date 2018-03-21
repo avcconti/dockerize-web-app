@@ -1,0 +1,24 @@
+#docker image build -t test-php-fpm -f DockerfilePHP .
+#docker container run --rm -it -v $PWD:/www/myapp --name test-php-fpm -p 9000:9000 test-php-fpm
+
+FROM amazonlinux:latest
+
+RUN yum clean all && yum update -y && yum install -y \
+sudo
+
+RUN yum install -y \
+php56 \
+php-pear \
+php56-cli \
+php56-common \
+php56-fpm \
+php56-pecl-redis
+
+RUN sed -e 's/127.0.0.1:9000/9000/' \
+        -e '/allowed_clients/d' \
+        -i /etc/php-fpm.d/www.conf 
+RUN mkdir -p /www/myapp
+
+CMD /usr/sbin/php-fpm --nodaemonize
+
+
