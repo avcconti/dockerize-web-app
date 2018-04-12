@@ -32,5 +32,6 @@ if(!$connect){
         <!-- Add your site or application content here -->
         <p>Html:1</p>
         <p>PHP:<?php echo $redis->incr("counter")." with MY_ENV_VAR =>".getenv("MY_ENV_VAR");?></p>
+        <p>PHP:<?php echo $redis->incr("counter")." with MY_ENV_VAR2 =>".getenv("MY_ENV_VAR2");?></p>
     </body>
     </html>

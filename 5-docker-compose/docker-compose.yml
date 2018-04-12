@@ -10,18 +10,19 @@ services:
       - 'redis_data:/data'
     networks:
       - 'mynet'
-    container_name: myapp_redis
   php:
     build:
       context: .
       dockerfile: DockerfilePHP
+    image: conti00/php-fpm:1.0
     volumes:
       - '.:/www/myapp'
     ports:
       - '9000:9000'
     networks:
       - 'mynet'
-    container_name: myapp_php
+    env_file:
+      - '.env'
   web:
     build: .
     depends_on:
@@ -32,7 +33,6 @@ services:
       - '.:/www/myapp'
     networks:
       - 'mynet'
-    container_name: myapp_web
     
 volumes:
   redis_data: {}
