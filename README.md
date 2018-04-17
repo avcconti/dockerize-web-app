@@ -8,7 +8,13 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-The only requisite is to install Docker on your machine, here is the link to [Docker installation](https://docs.docker.com/install/#supported-platforms) page
+1. Install Docker on your machine, here is the link to [Docker installation](https://docs.docker.com/install/#supported-platforms) page (For Windows: Install Docker toolbox)
+2. Install Git
+3. To check that you are able to follow the workshop, run this command on the terminal:
+
+	```
+	docker run hello-world
+	```
 
 ### Installing
 
