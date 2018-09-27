@@ -1,8 +1,14 @@
 #!/bin/sh
 set -e
 
-echo "The Dockerfile ENTRYPOINT has been executed!"
+cat  << EOM
+💻 💻 💻 💻 💻 💻 💻
+💻 Our entrypoint 💻
+💻 💻 💻 💻 💻 💻 💻                                      
+EOM
 
-export MY_ENV_VAR="miau"
+
+export AWS_ACCESS_KEY_ID=miau
+export AWS_SECRET_ACCESS_KEY=miau2
 
 exec "$@"

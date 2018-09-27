@@ -11,46 +11,46 @@ $connect=$redis->connect("redis", 6379,3);
 if(!$connect){
     error_log("Could not locate redis server");
 }
-
 ?>
-<!doctype html>
-<html class="no-js" lang="">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <style>
-body {
-    background: #3498db;
-    font-family: sans-serif;
-}
-h1 {
-    position: relative;
-    color: rgba(0, 0, 0, .3);
-    font-size: 5em
-}
-h1:before {
-    content: attr(data-text);
-    position: absolute;
-    overflow: hidden;
-    max-width: 7em;
-    white-space: nowrap;
-    color: #fff;
-    animation: loading 8s linear;
-}
-@keyframes loading {
-    0% {
-        max-width: 0;
-    }
-}
-</style>
+<!DOCTYPE html>
+<html lang="zxx" class="no-js">
 
-    </head>
-    <body>
-        <h1 style="width:400px; margin:auto auto;" data-text="NGINX...">NGINX...</h1>
-        <h1 style="width:400px; margin:auto auto;" data-text="PHP <?php echo $redis->incr("counter")." with MY_ENV_VAR =>".getenv("MY_ENV_VAR");?>">PHP <?php echo $redis->incr("counter")." with MY_ENV_VAR =>".getenv("MY_ENV_VAR");?></h1>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="UTF-8">
+    <title>Dockerize Web App</title>
+    <link rel="stylesheet" href="http://cdn.jsdelivr.net/npm/hack-font@3/build/web/hack.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
 
-    </body>
+<body>
+    <div class="body-wrap">
+        <div class="banner-area relative container ">
+            <div class="left-container">
+                <h1>4-Entrypoint <?php echo $redis->incr("counter");?></h1>
+                <p>Objective: build image and run container based on nginx with content mapped from host hard drive</p>
+                <pre>
+                AWS_ACCESS_KEY_ID=<?php echo getenv("AWS_ACCESS_KEY_ID");?>
+
+                AWS_SECRET_ACCESS_KEY=<?php echo getenv("AWS_SECRET_ACCESS_KEY");?>                
+
+                0. Build images:
+                docker image build -t test-nginx -f Dockerfile .
+                docker image build -t test-php-fpm -f DockerfilePHP .
+
+                1. Run containers:
+                docker container run --rm -it -v $PWD:/www/myapp --name test-php-fpm -p 9000:9000 --net mynet test-php-fpm
+                docker container run --rm -it -v $PWD:/www/myapp --name test-nginx -p 8081:80 --net mynet test-nginx
+                docker container run -it --rm -p 6379:6379 --name redis --net mynet redis
+                </pre>
+            </div>
+            <div class="right-container">
+                <img src="assets/img/gdg-big.png" alt="" class="">
+            </div>
+        </div>
+    </div>
+    <div class="grid-wrapper">
+    </div>
+</body>
+
 </html>
