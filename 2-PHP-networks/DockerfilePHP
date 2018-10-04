@@ -1,7 +1,7 @@
 #docker image build -t test-php-fpm -f DockerfilePHP .
 #docker container run --rm -it -v $PWD:/www/myapp --name test-php-fpm -p 9000:9000 --net mynet test-php-fpm
 
-FROM amazonlinux:latest
+FROM amazonlinux:1
 
 RUN yum clean all && yum update -y && yum install -y \
 sudo

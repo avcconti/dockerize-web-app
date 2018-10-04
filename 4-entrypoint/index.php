@@ -28,7 +28,7 @@ if(!$connect){
         <div class="banner-area relative container ">
             <div class="left-container">
                 <h1>4-Entrypoint <?php echo $redis->incr("counter");?></h1>
-                <p>Objective: build image and run container based on nginx with content mapped from host hard drive</p>
+                <p>Objective: Learn how to use an entrypoint</p>
                 <pre>
                 AWS_ACCESS_KEY_ID=<?php echo getenv("AWS_ACCESS_KEY_ID");?>
 

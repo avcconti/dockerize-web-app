@@ -1,6 +1,4 @@
-#docker image build -t test-nginx -f Dockerfile .
-#docker container run --rm -it -v $PWD:/www/myapp --name test-nginx -p 8081:80 test-nginx
-FROM amazonlinux:latest
+FROM amazonlinux:1
 
 RUN yum clean all && yum update -y && yum install -y \
 sudo

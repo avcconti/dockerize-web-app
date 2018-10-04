@@ -14,7 +14,6 @@ services:
     build:
       context: .
       dockerfile: DockerfilePHP
-    image: conti00/php-fpm:1.0
     volumes:
       - '.:/www/myapp'
     ports:
@@ -28,7 +27,7 @@ services:
     depends_on:
       - 'php'
     ports:
-      - '8080:80'
+      - '8081:80'
     volumes:
       - '.:/www/myapp'
     networks:

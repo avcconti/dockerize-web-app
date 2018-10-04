@@ -1,4 +1,4 @@
-FROM amazonlinux:latest
+FROM amazonlinux:1
 
 RUN yum clean all && yum update -y && yum install -y \
 sudo
