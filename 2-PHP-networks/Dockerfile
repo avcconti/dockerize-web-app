@@ -14,8 +14,6 @@ WORKDIR /www/myapp
 LABEL maintainer="Andrés Velasco <avc.conti@gmail.com>" \
       version="1.0"
 
-COPY . .
-
 COPY docker_assets/myapp.conf /etc/nginx/conf.d/
 COPY docker_assets/nginx.conf /etc/nginx/
 
