@@ -31,8 +31,8 @@ docker container run --rm -it -v $PWD:/www/myapp --name test-php-fpm -p 9000:900
 docker network --help 
 
 3. Run container with network
-docker container run --rm -it -v $PWD:/www/myapp --name test-php-fpm -p 9000:9000 --net mynet test-php-fpm
 docker container run --rm -it -v $PWD:/www/myapp --name test-nginx -p 8081:80 --net mynet test-nginx
+docker container run --rm -it -v $PWD:/www/myapp --name test-php-fpm -p 9000:9000 --net mynet test-php-fpm
 
 </pre>
 EOD;

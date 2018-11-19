@@ -36,7 +36,7 @@ if(!$connect){
 
                 1. Run containers:
                 docker container run --rm -it -v $PWD:/www/myapp --name test-php-fpm -p 9000:9000 --net mynet test-php-fpm
-                docker container run --rm -it -v $PWD:/www/myapp --name test-nginx -p 8081:80 --net mynet test-nginx
+                docker container run --rm -it --name test-nginx -p 8081:80 --net mynet test-nginx
                 
                 2. Run redis container
                 docker container run -it --rm -p 6379:6379 --name redis --net mynet redis
