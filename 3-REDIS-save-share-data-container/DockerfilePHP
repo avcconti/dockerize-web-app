@@ -9,11 +9,14 @@ php-pear \
 php56-cli \
 php56-common \
 php56-fpm \
-php56-pecl-redis
+php56-soap 
 
 RUN sed -e 's/127.0.0.1:9000/9000/' \
         -e '/allowed_clients/d' \
+        -e '/catch_workers_output/s/^;//' \
+        -e '/error_log/d' \
         -i /etc/php-fpm.d/www.conf 
+
 RUN mkdir -p /www/myapp
 
 CMD /usr/sbin/php-fpm --nodaemonize
