@@ -9,7 +9,8 @@ php-pear \
 php56-cli \
 php56-common \
 php56-fpm \
-php56-soap 
+php56-soap \
+php56-pecl-redis 
 
 RUN sed -e 's/127.0.0.1:9000/9000/' \
         -e '/allowed_clients/d' \
