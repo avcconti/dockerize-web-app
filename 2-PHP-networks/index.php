@@ -13,7 +13,7 @@
     <div class="body-wrap">
         <div class="banner-area relative container ">
             <div class="left-container">
-                <?php
+                <?php 
 $body=<<<EOD
 <h1>2-PHP-networks</h1>
 <p>Objective: Connect two containers in the same docker network</p>
@@ -24,15 +24,15 @@ docker image build -t test-nginx -f Dockerfile .
 docker image build -t test-php-fpm -f DockerfilePHP .
 
 1. Run containers:
-docker container run --rm -it -v $PWD:/www/myapp --name test-nginx -p 8081:80 test-nginx
-docker container run --rm -it -v $PWD:/www/myapp --name test-php-fpm -p 9000:9000 test-php-fpm
+docker container run --rm -it -v \$PWD:/www/myapp --name test-nginx -p 8081:80 test-nginx
+docker container run --rm -it -v \$PWD:/www/myapp --name test-php-fpm -p 9000:9000 test-php-fpm
 
 2. Network help:
 docker network --help 
 
 3. Run container with network
-docker container run --rm -it -v $PWD:/www/myapp --name test-nginx -p 8081:80 --net mynet test-nginx
-docker container run --rm -it -v $PWD:/www/myapp --name test-php-fpm -p 9000:9000 --net mynet test-php-fpm
+docker container run --rm -it -v \$PWD:/www/myapp --name test-nginx -p 8081:80 --net mynet test-nginx
+docker container run --rm -it -v \$PWD:/www/myapp --name test-php-fpm -p 9000:9000 --net mynet test-php-fpm
 
 </pre>
 EOD;

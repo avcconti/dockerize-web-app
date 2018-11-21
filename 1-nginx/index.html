@@ -23,10 +23,10 @@
                 docker image build -t test-nginx . 
                 
                 2. Run container:
-                docker container run --rm -p 8081:80 --name test-nginx test-nginx
+                docker container run --rm -it -p 8081:80 --name test-nginx test-nginx
 
                 3. Run container without COPYing content and using volume mapping instead:
-                docker container run --rm -p 8081:80 --name test-nginx -v $PWD:/www/myapp test-nginx
+                docker container run --rm -it -p 8081:80 --name test-nginx -v $PWD:/www/myapp test-nginx
                 </pre>
             </div>
             <div class="right-container">

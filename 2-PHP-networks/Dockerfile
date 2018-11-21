@@ -4,7 +4,6 @@ RUN yum clean all && yum update -y && yum install -y \
 sudo
 
 RUN yum install -y \
-php56 \
 nginx install \
 nmap
 
