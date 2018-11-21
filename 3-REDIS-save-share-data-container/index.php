@@ -28,7 +28,7 @@ if(!$connect){
         <div class="banner-area relative container ">
             <div class="left-container">
                 <h1>3-REDIS-share-data <?php echo $redis->incr("counter");?></h1>
-                <p>Objective: build image and run container based on nginx with content mapped from host hard drive</p>
+                <p>Objective: build image and run container with data saved previously in a custom created volume</p>
                 <pre>
                 0. Build images:
                 docker image build -t test-nginx -f Dockerfile .
