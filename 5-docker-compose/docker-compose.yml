@@ -1,4 +1,3 @@
-#docker-compose up -d to run in dettach mode
 version: '3'
 
 services:
