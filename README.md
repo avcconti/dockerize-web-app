@@ -1,6 +1,6 @@
 # Dockerize you PHP web app workshop
 
-This project intends to serve as Docker introduction to help you understand the steps necessary to dockerize a PHP web app. 
+This project intends to serve as Docker introduction to help you understand the steps necessary to dockerize a PHP web app. Slides at [Slideshare](https://es.slideshare.net/avcconti/docker-intro-workshop-dockerize-your-php-app)
 
 ## Getting Started
 
