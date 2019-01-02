@@ -19,6 +19,9 @@ RUN sed -e 's/127.0.0.1:9000/9000/' \
         -i /etc/php-fpm.d/www.conf 
 
 RUN mkdir -p /www/myapp
+WORKDIR /www/myapp
+
+COPY . .
 
 CMD /usr/sbin/php-fpm --nodaemonize
 
