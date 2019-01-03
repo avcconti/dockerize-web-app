@@ -27,7 +27,7 @@ if(!$connect){
     <div class="body-wrap">
         <div class="banner-area relative container ">
             <div class="left-container">
-                <h1>4-Entrypoint <?php echo $redis->incr("counter");?></h1>
+                <h1>4-Entrypoint <?php echo (strpos($_SERVER['REQUEST_URI'],'favicon.ico') === false) ? $redis->incr("counter") : $redis->get("counter"); ?></h1>
                 <p>Objective: Learn how to use an entrypoint</p>
                 <pre>
                 AWS_ACCESS_KEY_ID=<?php echo getenv("AWS_ACCESS_KEY_ID");?>
@@ -39,8 +39,8 @@ if(!$connect){
                 docker image build -t test-php-fpm -f DockerfilePHP .
 
                 1. Run containers:
-                docker container run --rm -it -v $PWD:/www/myapp --name test-php-fpm -p 9000:9000 --net mynet test-php-fpm
-                docker container run --rm -it -v $PWD:/www/myapp --name test-nginx -p 8081:80 --net mynet test-nginx
+                docker container run --rm -it -v $PWD:/www/myapp --name test-php-fpm -p 9000:9000 --net mynet  test-php-fpm
+                docker container run --rm -it --name test-nginx -p 8080:80 --net mynet --volumes-from test-php-fpm test-nginx
                 docker container run -it --rm -p 6379:6379 --name redis --net mynet redis
                 </pre>
             </div>

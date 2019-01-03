@@ -18,7 +18,12 @@ RUN sed -e 's/127.0.0.1:9000/9000/' \
         -e 's/;clear_env/clear_env/' \
         -e '/error_log/d' \
         -i /etc/php-fpm.d/www.conf 
+
 RUN mkdir -p /www/myapp
+WORKDIR /www/myapp
+COPY . .
+
+VOLUME ["/www/myapp"]
 
 COPY docker-entrypoint.sh /
 RUN chmod +x /docker-entrypoint.sh

@@ -6,9 +6,6 @@ sudo
 RUN yum install -y \
 nginx install
 
-RUN mkdir -p /www/myapp
-WORKDIR /www/myapp
-
 COPY docker_assets/myapp.conf /etc/nginx/conf.d/
 COPY docker_assets/nginx.conf /etc/nginx/
 
