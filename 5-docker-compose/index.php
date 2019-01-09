@@ -27,7 +27,7 @@ if(!$connect){
     <div class="body-wrap">
         <div class="banner-area relative container ">
             <div class="left-container">
-                <h1>5-docker-compose <?php echo $redis->incr("counter");?></h1>
+                <h1>5-docker-compose <?php echo (strpos($_SERVER['REQUEST_URI'],'favicon.ico') === false) ? $redis->incr("counter") : $redis->get("counter"); ?></h1>
                 <p>Objective: enjoy with the magic of docker-compose</p>
                 <pre>
                 AWS_ACCESS_KEY_ID=<?php echo getenv("AWS_ACCESS_KEY_ID");?>
