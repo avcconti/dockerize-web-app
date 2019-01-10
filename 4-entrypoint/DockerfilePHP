@@ -12,13 +12,6 @@ php56-fpm \
 php56-soap \
 php56-pecl-redis
 
-RUN sed -e 's/127.0.0.1:9000/9000/' \
-        -e '/allowed_clients/d' \
-        -e '/catch_workers_output/s/^;//' \
-        -e 's/;clear_env/clear_env/' \
-        -e '/error_log/d' \
-        -i /etc/php-fpm.d/www.conf 
-
 RUN mkdir -p /www/myapp
 WORKDIR /www/myapp
 COPY . .
